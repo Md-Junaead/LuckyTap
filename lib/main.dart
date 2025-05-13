@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'screens/game_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const RandomNumberGame());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class RandomNumberGame extends StatelessWidget {
+  const RandomNumberGame({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Random Number Game',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const GameScreen(),
     );
   }
 }
