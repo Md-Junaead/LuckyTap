@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/game_screen.dart';
+import 'package:provider/provider.dart';
+import 'presentation/providers/game_provider.dart';
+import 'presentation/screens/game_screen.dart';
 
 void main() {
   runApp(const RandomNumberGame());
@@ -8,12 +10,17 @@ void main() {
 class RandomNumberGame extends StatelessWidget {
   const RandomNumberGame({super.key});
 
+  // flutter build apk --build-name=1.0 --build-number=1
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Random Number Game',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const GameScreen(),
+    return ChangeNotifierProvider(
+      create: (_) => GameProvider(),
+      child: MaterialApp(
+        title: 'Lucky Tap',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: const GameScreen(),
+      ),
     );
   }
 }
